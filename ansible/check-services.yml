@@ -1,16 +1,16 @@
 ---
-- name: Verify Jenkins and Docker services
+- name: Verify Jenkins and Docker Services
   hosts: local
   become: true
 
   tasks:
-    - name: Check Jenkins service
+    - name: Ensure Jenkins is active and enabled
       ansible.builtin.systemd:
         name: jenkins
         state: started
         enabled: true
 
-    - name: Check Docker service
+    - name: Ensure Docker is active and enabled
       ansible.builtin.systemd:
         name: docker
         state: started
